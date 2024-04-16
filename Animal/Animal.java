@@ -1,17 +1,11 @@
 public class Animal {
-    private String nombre;
-    private int edad;
+    protected String nombre;
 
-    public Animal(String nombre, int edad) {
+    public Animal(String nombre) {
         this.nombre = nombre;
-        this.edad = edad;
     }
 
     public String getNombre() {
         return nombre;
-    }
-
-    public int getEdad() {
-        return edad;
     }
 }

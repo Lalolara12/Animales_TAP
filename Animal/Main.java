@@ -1,18 +1,40 @@
 public class Main {
     public static void main(String[] args) {
-        AnimalEspecifico perro1 = new AnimalEspecifico("Perro Lactozo", 3, TipoAnimal.TERRESTRE);
-        AnimalEspecifico perro2 = new AnimalEspecifico("Rex", 5, TipoAnimal.TERRESTRE);
-        AnimalEspecifico perro3 = new AnimalEspecifico("Max", 2, TipoAnimal.TERRESTRE);
+        // Crear animales
+        Animal perro = new Mamifero("Perro", "Pelo corto");
+        Animal gato = new Mamifero("Gato", "Pelo largo");
+        Animal leon = new Mamifero("Leon", "Melena");
+        Animal vibora = new Reptil("Vibora", true);
+        Animal cocodrilo = new Reptil("Cocodrilo", true);
+        Animal lagarto = new Reptil("Lagarto", false);
+        Animal aguila = new Ave("Aguila", "Pico ganchudo");
+        Animal paloma = new Ave("Paloma", "Pico corto");
+        Animal cuervo = new Ave("Cuervo", "Pico afilado");
+        Animal serpientes = new Reptil("Serpientes", false);
 
-        AnimalEspecifico pajaro1 = new AnimalEspecifico("Piolín", 1, TipoAnimal.VOLADOR);
-        AnimalEspecifico pajaro2 = new AnimalEspecifico("Mordecai", 2, TipoAnimal.VOLADOR);
-        AnimalEspecifico pajaro3 = new AnimalEspecifico("Pájaro Loco", 4, TipoAnimal.VOLADOR);
+        // Crear jaulas
+        JaulaTipo1 jaulaTipo1Mamiferos = new JaulaTipo1(Mamifero.class);
+        Jaula jaulaReptiles = new JaulaTipo1(Reptil.class);
+        JaulaTipo2 jaulaTipo2 = new JaulaTipo2(Ave.class);
 
-        AnimalEspecifico pez1 = new AnimalEspecifico("Nemo", 1, TipoAnimal.MARINO);
-        AnimalEspecifico pez2 = new AnimalEspecifico("Dory", 3, TipoAnimal.MARINO);
-        AnimalEspecifico pez3 = new AnimalEspecifico("Pez Globo", 2, TipoAnimal.MARINO);
+        // Agregar animales a las jaulas
+        jaulaTipo1Mamiferos.agregarAnimal(perro);
+        jaulaTipo1Mamiferos.agregarAnimal(gato);
+        jaulaTipo1Mamiferos.agregarAnimal(leon);
+        jaulaReptiles.agregarAnimal(perro);
+        jaulaReptiles.agregarAnimal(cocodrilo);
+        jaulaReptiles.agregarAnimal(lagarto);
+        jaulaTipo2.agregarAnimal(aguila);
+        jaulaTipo2.agregarAnimal(paloma);
+        jaulaTipo2.agregarAnimal(cuervo);
+        jaulaReptiles.agregarAnimal(serpientes);
 
-        Jaula jaula = new Jaula(perro1, pajaro2, pez3);
-        jaula.mostrarAnimales();
+        // Imprimir los animales en cada jaula
+        System.out.println("Animales en la jaula de mamíferos:");
+        jaulaTipo1Mamiferos.imprimirAnimales();
+        System.out.println("\nAnimales en la jaula de reptiles:");
+        jaulaReptiles.imprimirAnimales();
+        System.out.println("\nAnimales en la jaula de aves:");
+        jaulaTipo2.imprimirAnimales();
     }
 }
